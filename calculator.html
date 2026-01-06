@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+
+    .calculator{
+        background-color: white;
+        padding: 30px;
+        margin: 5px;
+        border-radius: 10px;
+        width: 250px;
+        box-shadow: 0 5px 15px black;
+        transition: transform 3s ease;
+
+
+    }
+
+    .calculator:hover
+    {
+    transform: translateY(-50px);
+    }
+
+    .calculator h1{
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 20px;
+
+    }
+
+
+    .buttons{
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 25px ;
+    }
+
+    button{
+        width: 40px;
+        height: 4opx;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: bold;
+        border: 5px;
+        border-radius:  4px;
+        background-color: bisque;
+        color: rgb(5, 20, 33);
+        transition: all 2s  ease  ;
+    }
+
+    button:hover {
+            background-color: #c5e1dc;
+        }
+
+</style>
+<body>
+
+   <div class="calculator">
+
+    <h1> shravanee's calculator</h1>
+    Number A <input type="text" id="text1">
+   <br><br>
+   
+   Number B <input type = "text" id="text2">
+   <br><br>
+
+   <div class="buttons">
+    <button onclick="add()">+</button>
+   <button onclick="calc('-')">-</button>
+   <button onclick="calc('*')">*</button>
+   <button onclick="calc('/')">/</button>
+   <br><br>
+   </div>
+
+   Result <input type="text" id="text3">
+   </div>
+</body>
+
+<script>
+    function add()
+    {
+        let a =document.getElementById("text1").value
+
+    
+    let b = document.getElementById("text2").value
+
+    let c = Number(a) + Number(b);
+    
+    document.getElementById("text3").value = c;
+    }
+    function calc(op)
+    {
+        let a = Number(document.getElementById("text1").value);
+        let b = Number(document.getElementById("text2").value);
+        let c;
+
+        switch(op)
+        {
+            case '-':
+                c = a - b;
+                break;
+
+            case '*':
+                c = a * b;
+                break;
+
+            case '/':
+                if(b === 0)
+                    c = "Not possible";
+                else
+                    c = a / b;
+                break;
+        }
+
+        document.getElementById("text3").value = c;
+    }
+    
+
+    
+</script>
+</html>
